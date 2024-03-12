@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
+import EditBilgi from './EditBilgi';
 
 const BilgiList = ({ tutorials, deleteTutorial }) => {
     //*Home'da fonksiyonu yazdık,burada fonk. cagır:
@@ -10,7 +11,7 @@ const BilgiList = ({ tutorials, deleteTutorial }) => {
 
     // }
     //******************************************* */
-
+    const [item, setItem] = useState("")
 
 
     // console.log(tutorials)
@@ -42,7 +43,12 @@ const BilgiList = ({ tutorials, deleteTutorial }) => {
                                         onClick={() => deleteTutorial(id)}
 
                                     />
-                                    <FaEdit type='button' className='text-warning me-2' size={22} />
+                                    {/* bootstrapten hareketli bir yapı olan modal kullanacağım için index.html e bootstrap in script etiketini ekledik */}
+                                    <FaEdit type='button' className='text-warning me-2' size={22}
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#editModal"
+                                        onClick={() => setItem({ id, title, description })}
+                                    />
 
 
                                 </td>
@@ -51,6 +57,8 @@ const BilgiList = ({ tutorials, deleteTutorial }) => {
                     })}
                 </tbody>
             </table>
+            {/* //****MODAL*************** */}
+            <EditBilgi item={item} setItem={setItem} />
 
         </div>
     );
