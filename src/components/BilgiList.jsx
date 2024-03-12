@@ -2,7 +2,16 @@ import React from 'react';
 import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 
-const BilgiList = ({ tutorials }) => {
+const BilgiList = ({ tutorials, deleteTutorial }) => {
+    //*Home'da fonksiyonu yazdık,burada fonk. cagır:
+    // const deleteTutorial = async (id) => {
+
+    //     await axios.delete(`${url}/${id}/`)
+
+    // }
+    //******************************************* */
+
+
 
     // console.log(tutorials)
 
@@ -27,7 +36,12 @@ const BilgiList = ({ tutorials }) => {
                                 <td>{title}</td>
                                 <td>{description} </td>
                                 <td className="text-center ">
-                                    <AiFillDelete type='button' className='text-danger' size={22} />
+                                    <AiFillDelete type='button'
+                                        className='text-danger'
+                                        size={22}
+                                        onClick={() => deleteTutorial(id)}
+
+                                    />
                                     <FaEdit type='button' className='text-warning me-2' size={22} />
 
 

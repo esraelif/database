@@ -42,13 +42,22 @@ const Home = () => {
 
     }
 
+    //! DELETE (database'den silme)*************************************************
+
+    const deleteTutorial = async (id) => {
+
+        await axios.delete(`${url}${id}/`)
+        getTutorials()
+
+    }
+
 
 
 
     return (
         <>
             <AddBilgi postTutorial={postTutorial} />
-            <BilgiList tutorials={tutorials} />
+            <BilgiList tutorials={tutorials} deleteTutorial={deleteTutorial} />
 
         </>
     );
