@@ -3,7 +3,7 @@ import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 import EditBilgi from './EditBilgi';
 
-const BilgiList = ({ tutorials, deleteTutorial }) => {
+const BilgiList = ({ tutorials, deleteTutorial, getTutorials }) => {
     //*Home'da fonksiyonu yazdık,burada fonk. cagır:
     // const deleteTutorial = async (id) => {
 
@@ -58,7 +58,7 @@ const BilgiList = ({ tutorials, deleteTutorial }) => {
                 </tbody>
             </table>
             {/* //****MODAL*************** */}
-            <EditBilgi item={item} setItem={setItem} />
+            <EditBilgi item={item} setItem={setItem} getTutorials={getTutorials} />
 
         </div>
     );

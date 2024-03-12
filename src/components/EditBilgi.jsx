@@ -1,12 +1,13 @@
 import axios from 'axios';
 import React from 'react';
 
-const EditBilgi = ({ item, setItem }) => {
+const EditBilgi = ({ item, setItem, getTutorials }) => {
     const { id, title, description } = item
     const url = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
 
     const putTutorial = async (eleman) => {
         await axios.put(`${url}${eleman.id}/`, eleman)
+        getTutorials()
 
     }
     return (
